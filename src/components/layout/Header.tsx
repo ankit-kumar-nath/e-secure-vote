@@ -2,6 +2,7 @@ import { Shield, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import ashokaChakra from "@/assets/ashoka-chakra.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,10 +22,10 @@ const Header = () => {
       {/* Government stripe */}
       <div className="govt-header py-2">
         <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm">
-            <Shield className="h-4 w-4" />
-            <span className="hidden sm:inline">Government of India | भारत सरकार</span>
-            <span className="sm:hidden">GOI</span>
+          <div className="flex items-center gap-3 text-sm">
+            <img src={ashokaChakra} alt="Ashoka Chakra" className="h-6 w-6 object-contain brightness-0 invert" />
+            <span className="hidden sm:inline font-medium">Government of India | भारत सरकार</span>
+            <span className="sm:hidden font-medium">GOI</span>
           </div>
           <div className="flex items-center gap-4 text-sm">
             <Link to="/admin/login" className="hover:underline">
@@ -38,11 +39,11 @@ const Header = () => {
       <nav className="glass-effect border-b">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Shield className="h-6 w-6" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground overflow-hidden">
+              <img src={ashokaChakra} alt="Ashoka Chakra" className="h-7 w-7 object-contain brightness-0 invert" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-primary">SecureVote</h1>
+              <h1 className="text-lg font-bold text-primary">SecureVote India</h1>
               <p className="text-xs text-muted-foreground">Blockchain E-Voting System</p>
             </div>
           </Link>
