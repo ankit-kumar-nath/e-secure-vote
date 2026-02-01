@@ -1,8 +1,29 @@
-import { Shield, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import ashokaChakra from "@/assets/ashoka-chakra.png";
+
+// Ashoka Chakra SVG Component
+const AshokaChakra = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+    <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="4"/>
+    <circle cx="50" cy="50" r="8" fill="currentColor"/>
+    {/* 24 spokes */}
+    {[...Array(24)].map((_, i) => (
+      <line
+        key={i}
+        x1="50"
+        y1="50"
+        x2="50"
+        y2="8"
+        stroke="currentColor"
+        strokeWidth="2"
+        transform={`rotate(${i * 15} 50 50)`}
+      />
+    ))}
+    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,8 +43,8 @@ const Header = () => {
       {/* Government stripe */}
       <div className="govt-header py-2">
         <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-3 text-sm">
-            <img src={ashokaChakra} alt="Ashoka Chakra" className="h-6 w-6 object-contain brightness-0 invert" />
+          <div className="flex items-center gap-3 text-sm text-primary-foreground">
+            <AshokaChakra className="h-6 w-6" />
             <span className="hidden sm:inline font-medium">Government of India | भारत सरकार</span>
             <span className="sm:hidden font-medium">GOI</span>
           </div>
@@ -39,8 +60,8 @@ const Header = () => {
       <nav className="glass-effect border-b">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground overflow-hidden">
-              <img src={ashokaChakra} alt="Ashoka Chakra" className="h-7 w-7 object-contain brightness-0 invert" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground p-1.5">
+              <AshokaChakra className="h-full w-full" />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-primary">SecureVote India</h1>
