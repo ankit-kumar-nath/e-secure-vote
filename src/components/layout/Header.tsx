@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import nationalEmblem from "@/assets/national-emblem.png";
 
 // Ashoka Chakra SVG Component
 const AshokaChakra = ({ className }: { className?: string }) => (
@@ -44,7 +45,8 @@ const Header = () => {
       <div className="govt-header py-2">
         <div className="container flex items-center justify-between">
           <div className="flex items-center gap-3 text-sm text-primary-foreground">
-            <AshokaChakra className="h-6 w-6" />
+            <img src={nationalEmblem} alt="National Emblem of India" className="h-8 w-8 object-contain brightness-0 invert" />
+            <AshokaChakra className="h-5 w-5" />
             <span className="hidden sm:inline font-medium">Government of India | भारत सरकार</span>
             <span className="sm:hidden font-medium">GOI</span>
           </div>
